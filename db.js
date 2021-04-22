@@ -8,7 +8,7 @@ const pool = new Pool({
     user: "postgres",
     password: "nwokocha95",
     database: "kliqr_users",
-    host: "localhost",
+    host: "https://infinite-cove-82813.herokuapp.com/",
     port: "5432"
 });
 
