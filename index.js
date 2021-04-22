@@ -10,7 +10,7 @@ app.use(express.json()) // => req.body
 //get all users
 app.get("/transactions", async (req, res) => {
     try {
-        const allTransactions = await pool.query("SELECT * from kliqr_transactions");
+        const allTransactions = await pool.query("SELECT * from transactions");
         res.json(allTransactions.rows);
     } catch (err) {
         console.error(err.message)
@@ -23,7 +23,7 @@ app.get("/transactions/:id", async (req, res) => {
     const { id } = req.params;
     try {
         const transaction = await pool.query(
-            "SELECT * FROM kliqr_transactions WHERE id = $1", 
+            "SELECT * FROM transactions WHERE id = $1", 
             [id]
         );
         res.json(transaction.rows[0]);
